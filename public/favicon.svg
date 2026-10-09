@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Qasim Bin Saeed">
+  <style>
+    .plate { fill: #146b66; }
+    .mark { fill: none; stroke: #fffdf8; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; }
+    .tail { stroke: #fffdf8; stroke-width: 3.2; stroke-linecap: round; }
+    @media (prefers-color-scheme: dark) {
+      .plate { fill: #7fc6c0; }
+      .mark { stroke: #202023; }
+      .tail { stroke: #202023; }
+    }
+  </style>
+  <rect class="plate" width="32" height="32" rx="7" ry="7"/>
+  <circle class="mark" cx="15.2" cy="15" r="7.2"/>
+  <path class="tail" d="M18.6 18.8 L23.4 23.6"/>
+</svg>

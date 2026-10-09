@@ -34,7 +34,11 @@ const Main = ({ children, router }) => {
         <meta name="robots" content="index, follow, max-image-preview:large" />
         <meta name="googlebot" content="index, follow" />
         <link rel="canonical" href={`${seo.siteUrl}/`} />
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        {/* SVG adapts to light/dark browser chrome; PNG/ICO fallbacks stay on brand teal */}
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/favicon-48.png" />
 
         {profile.googleSiteVerification ? (
           <meta
