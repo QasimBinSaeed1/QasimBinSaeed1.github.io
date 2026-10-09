@@ -76,7 +76,7 @@ const Home = ({
 
       <Box display={{ lg: 'flex' }}>
         <Box flexGrow={1}>
-          <Heading as="h2" variant="page-title">
+          <Heading as="h1" variant="page-title">
             {profile.name}
           </Heading>
           <p><b>{profile.title}</b> <br/>{profile.affiliation}</p>
@@ -90,7 +90,7 @@ const Home = ({
           <SketchPhoto size={150}>
             <ProfileImage
               src={profile.photoUrl}
-              alt="Profile image"
+              alt={`Portrait of ${profile.name}, ${profile.title} at ${profile.affiliation}`}
               width={150}
               height={150}
               priority

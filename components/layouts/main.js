@@ -3,6 +3,8 @@ import Head from 'next/head'
 import NavBar from '../navbar'
 import { Box, Container } from '@chakra-ui/react'
 import { SketchLinkUnderlines } from '../sketch'
+import { profile } from '../../lib/content'
+import { seo, personJsonLd } from '../../lib/seo'
 
 const Main = ({ children, router }) => {
   // Smooth-scroll to in-page section anchors (nav links like /#publications)
@@ -19,17 +21,54 @@ const Main = ({ children, router }) => {
     return () => clearTimeout(t)
   }, [router.asPath])
 
+  const jsonLd = personJsonLd()
+
   return (
     <Box as="main" pb={8}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Qasim Bin Saeed — academic portfolio" />
-        <meta name="author" content="Qasim Bin Saeed" />
+        <title>{seo.title}</title>
+        <meta name="description" content={seo.description} />
+        <meta name="keywords" content={seo.keywords} />
+        <meta name="author" content={profile.name} />
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta name="googlebot" content="index, follow" />
+        <link rel="canonical" href={`${seo.siteUrl}/`} />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <meta property="og:site_name" content="Qasim Bin Saeed" />
-        <meta property="og:title" content="Qasim Bin Saeed" />
-        <meta property="og:type" content="website" />
-        <title>Qasim Bin Saeed</title>
+
+        {profile.googleSiteVerification ? (
+          <meta
+            name="google-site-verification"
+            content={profile.googleSiteVerification}
+          />
+        ) : null}
+        {profile.bingSiteVerification ? (
+          <meta
+            name="msvalidate.01"
+            content={profile.bingSiteVerification}
+          />
+        ) : null}
+
+        <meta property="og:site_name" content={profile.name} />
+        <meta property="og:title" content={seo.title} />
+        <meta property="og:description" content={seo.description} />
+        <meta property="og:type" content="profile" />
+        <meta property="og:url" content={`${seo.siteUrl}/`} />
+        <meta property="og:image" content={seo.image} />
+        <meta property="og:image:alt" content={`Portrait of ${profile.name}`} />
+        <meta property="og:locale" content="en_US" />
+        <meta property="profile:first_name" content="Qasim" />
+        <meta property="profile:last_name" content="Bin Saeed" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={seo.title} />
+        <meta name="twitter:description" content={seo.description} />
+        <meta name="twitter:image" content={seo.image} />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </Head>
 
       <NavBar path={router.asPath} />

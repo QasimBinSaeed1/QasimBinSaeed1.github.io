@@ -48,3 +48,18 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Notify Bing / Yandex / Seznam via IndexNow (faster discovery)
+      - name: Ping IndexNow
+        continue-on-error: true
+        run: |
+          curl -sS -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{
+              "host": "qasimbinsaeed1.github.io",
+              "key": "a8f3c2e91b4d6e70a1c5f8b2d934e671",
+              "keyLocation": "https://qasimbinsaeed1.github.io/a8f3c2e91b4d6e70a1c5f8b2d934e671.txt",
+              "urlList": [
+                "https://qasimbinsaeed1.github.io/"
+              ]
+            }'
