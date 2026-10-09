@@ -1,8 +1,8 @@
-# Qasim Bin Saeed — Academic Portfolio
+﻿# Qasim Bin Saeed — Academic Portfolio
 
-Personal academic website: [https://QasimBinSaeed1.github.io](https://QasimBinSaeed1.github.io)
+Personal academic website: **https://QasimBinSaeed1.github.io**
 
-Built with Next.js + Chakra UI. Content lives in [`lib/content.js`](lib/content.js) and [`lib/visited-cities.js`](lib/visited-cities.js).
+Built with Next.js + Chakra UI. Edit content in `lib/content.js` and `lib/visited-cities.js`.
 
 ## Local development
 
@@ -11,13 +11,13 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open http://localhost:3000
 
-## Production build (static)
+## Production build
 
 ```bash
 npm run build
 npm start
 ```
 
-Static files are written to `out/` and deployed to GitHub Pages via `.github/workflows/deploy.yml`.
+Deployed automatically to GitHub Pages from `main` via `.github/workflows/deploy.yml`.
